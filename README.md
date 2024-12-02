@@ -58,7 +58,7 @@ Click the image below to view the dashboard:
 
 You can download and view the PowerPoint presentation for this analysis using the link below:
 
-[Download Hospital Supply Chain Inventory Data Analysis Presentation](https://github.com/rawatabhinav368/Hospital-Supply-Chain-Inventory-Optimization/blob/main/hospial%20supply%20chain%20inventory%20data%20analysis.pptx)
+[Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting](https://github.com/rawatabhinav368/Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting/blob/main/Rapido%20banglore%20service%20and%20demand%20analytics%20ppt.pdf)
 
   ### Data Cleaning/Preparation
 
