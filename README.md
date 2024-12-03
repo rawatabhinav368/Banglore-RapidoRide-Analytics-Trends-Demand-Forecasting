@@ -75,7 +75,7 @@ You can download and view the PowerPoint presentation for this analysis using th
 
   ### Exploratory data analysis (EDA)
  
-  EDA involves exploring the inventory data to answer key questions, such as:
+  EDA involves exploring the ride data to answer key questions, such as:
 
   - Which service type (e.g., Bike, Auto, Cab) is most preferred by users?
   - What are the peak demand hours for each service type?
