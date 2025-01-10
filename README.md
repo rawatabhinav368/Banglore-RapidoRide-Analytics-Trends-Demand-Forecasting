@@ -99,85 +99,39 @@ plt.tight_layout()
 plt.show()
 
 SARIMAX Forecast for ride demand 
-rom statsmodels.tsa.statespace.sarimax import SARIMAX
-
-# Ensuring we only pass the univariate 'ride_count' column
-endog = demand_by_hour['ride_count']
-
-# Step 1: Fit a SARIMAX model
-# Example SARIMAX model: (p=1, d=1, q=1) and seasonal order (P=1, D=1, Q=1, s=24) for daily seasonality
 sarimax_model = SARIMAX(endog, 
-                        order=(1, 1, 1),  # ARIMA order (p, d, q)
-                        seasonal_order=(1, 1, 1, 24))  # Seasonal order (P, D, Q, s)
-
-# Step 2: Fit the model
+                        order=(1, 1, 1),  # ARIMA order
+                        seasonal_order=(1, 1, 1, 7))  # Weekly seasonality (7 days)
 sarimax_results = sarimax_model.fit()
 
-# Step 3: Get the forecast for the next 24 hours
-forecast_steps = 24
-forecast = sarimax_results.get_forecast(steps=forecast_steps)
-forecast_values = forecast.predicted_mean
-
-
-
-# Creating a plot for the historical data and forecast
-fig = go.Figure()
-
-# Adding the historical data
-fig.add_trace(go.Scatter(x=demand_by_hour['hour'], y=demand_by_hour['ride_count'],
-                         mode='lines+markers', name='Historical Demand'))
-
-# Adding the forecasted data
-forecast_index = np.arange(len(demand_by_hour), len(demand_by_hour) + forecast_steps)
-fig.add_trace(go.Scatter(x=forecast_index, y=forecast_values,
-                         mode='lines+markers', name='Forecasted Demand', line=dict(color='red')))
-
-
-fig.update_layout(title="SARIMAX Forecast for Ride Demand",
-                  xaxis_title="Hour of the Day",
-                  yaxis_title="Ride Count",
-                  showlegend=True)
-
-fig.show()
+# Forecast for the next 30 days
+forecast_steps = 30
+sarimax_forecast = sarimax_results.get_forecast(steps=forecast_steps)
+sarimax_forecast_values = sarimax_forecast.predicted_mean
+sarimax_forecast_index = pd.date_range(start=daily_demand['date'].iloc[-1] + pd.Timedelta(days=1), 
+                                       periods=forecast_steps, freq='D')
+# SARIMAX Forecast
+fig.add_trace(go.Scatter(x=sarimax_forecast_index, y=sarimax_forecast_values,
+                         mode='lines+markers', name='SARIMAX Forecast', line=dict(color='orange')))
 
 ARIMA Forecast for ride demand
 from statsmodels.tsa.arima.model import ARIMA
 import plotly.graph_objects as go
 
-# Step 1: Prepare the data
-# Group ride counts by hour
-demand_by_hour = rapido_data.groupby('hour').size().reset_index(name='ride_count')
+arima_model = ARIMA(daily_demand['ride_count'], order=(1, 1, 1))
+arima_results = arima_model.fit()
 
-# Ensure the index is set properly for time series modeling
-demand_by_hour.set_index('hour', inplace=True)
-
-# Step 2: Fit ARIMA model
-# Example ARIMA order (p=1, d=1, q=1)
-model = ARIMA(demand_by_hour['ride_count'], order=(1, 1, 1))
-model_fit = model.fit()
-
-# Step 3: Forecast future demand
-forecast_steps = 24  # Predict for the next 24 hours
-forecast = model_fit.forecast(steps=forecast_steps)
-forecast_index = np.arange(demand_by_hour.index[-1] + 1, demand_by_hour.index[-1] + 1 + forecast_steps)
-
-# Step 4: Visualizing the forecast using Plotly
-fig = go.Figure()
-
-# Historical demand
-fig.add_trace(go.Scatter(x=demand_by_hour.index, y=demand_by_hour['ride_count'],
-                         mode='lines+markers', name='Historical Demand'))
-
-# Forecasted demand
-fig.add_trace(go.Scatter(x=forecast_index, y=forecast,
-                         mode='lines+markers', name='Forecasted Demand', line=dict(color='red')))
-
-
-fig.update_layout(title="ARIMA Forecast for Ride Demand",
-                  xaxis_title="Hour",
+# Forecast for the next 30 days
+arima_forecast = arima_results.forecast(steps=forecast_steps)
+arima_forecast_index = pd.date_range(start=daily_demand['date'].iloc[-1] + pd.Timedelta(days=1), 
+                                     periods=forecast_steps, freq='D')
+fig.add_trace(go.Scatter(x=arima_forecast_index, y=arima_forecast,
+                         mode='lines+markers', name='ARIMA Forecast', line=dict(color='red')))
+# Updating Layout
+fig.update_layout(title="Daily Ride Demand Forecast for the Next 30 Days",
+                  xaxis_title="Date",
                   yaxis_title="Ride Count",
                   showlegend=True)
-
 
 fig.show()
 
