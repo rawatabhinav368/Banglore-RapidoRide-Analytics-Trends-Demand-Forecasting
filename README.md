@@ -152,3 +152,5 @@ The analysis results are summarized as follows:
 * For auto and cab services, focus on improving ride consistency by reducing variability in ride durations (e.g., through better route optimization or partnerships with local authorities to reduce traffic bottlenecks).
 *  Capitalize on Paytm and GPay’s popularity by offering time-limited discounts to further drive engagement.
 *  Promote premium cab services during evenings for social outings or corporate travel to attract higher-paying customers.
+
+
