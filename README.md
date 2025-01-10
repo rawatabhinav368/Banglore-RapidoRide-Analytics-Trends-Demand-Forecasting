@@ -58,7 +58,7 @@ Click the image below to view the dashboard:
 
 You can download and view the PowerPoint presentation for this analysis using the link below:
 
-[Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting](https://github.com/rawatabhinav368/Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting/blob/main/Rapido%20banglore%20service%20and%20demand%20analytics%20ppt.pdf)
+[Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting](https://github.com/rawatabhinav368/Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting/blob/main/Rapido%20banglore%20service%20and%20demand%20analytics%20pdf.pdf)
 
   ### Data Cleaning/Preparation
 
