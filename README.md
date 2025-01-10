@@ -44,13 +44,13 @@ For more information, visit the Kaggle dataset page [here](https://www.kaggle.co
 1. **Python**: 
     Libraries Used: - Pandas , Numpy, Matplotlib, Seaborn, Plotly, Warnings.
   
-2. **Tableau**: 
-   - Tableau was used for data visualization. It helped in creating interactive dashboards to analyze Bangalore Rapido Ride Services  data, service demand, and identify trends in real-time.
-   - ## Rapido Banglore: Service and Demand Analytics Dashboard
+2. **Power Bi**: 
+   - Power BI was used for data visualization. It helped in creating interactive dashboards to analyze Bangalore Rapido Ride Services  data, service demand, and identify trends in real-time.
+   - ## RapidoRide Trends: Bangalore Analytics & Demand Forecasting 
 
 Click the image below to view the dashboard:
 
-[![Rapido Banglore Service and Demand Anlytics Dashboard](https://github.com/rawatabhinav368/Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting/blob/main/Rapido%20banglore%20ride%20dashboard.png)](https://github.com/rawatabhinav368/Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting/blob/main/Rapido%20banglore%20ride%20dashboard.png)
+[![Rapido Banglore Service and Demand Anlytics Dashboard](https://github.com/rawatabhinav368/Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting/blob/main/RapidoRide%20Trend%20Bangalore%20Analytics%20And%20Demand%20Forecasting.png)](https://github.com/rawatabhinav368/Banglore-RapidoRide-Analytics-Trends-Demand-Forecasting/blob/main/RapidoRide%20Trend%20Bangalore%20Analytics%20And%20Demand%20Forecasting.png)
 
 3. **PowerPoint**:
    - PowerPoint was used for creating presentations and communicating the insights derived from the analysis. It helped in effectively presenting findings and recommendations to stakeholders.
